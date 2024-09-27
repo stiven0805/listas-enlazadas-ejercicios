@@ -1,0 +1,91 @@
+Algoritmo PilaenPseudocodigo
+
+    Definir pila como entero; 
+    Definir max como entero; 
+    Definir tope como entero; 
+    Definir seleccion como entero; 
+    Definir dato como entero; 
+    Definir band como logico; 
+    Definir n como entero;
+	
+    Escribir "Ingrese el tamaño de la pila: ";
+    Leer n;
+	
+    Dimension pila[n+1]; 
+	
+    tope <- 0  
+    band = Falso;
+    dato = 0; 
+	
+    Repetir 
+        Escribir "Seleccione que quiere hacer con la estructura pila (Tope =  ",tope, ")";
+        Escribir "1 = isEmpty"
+        Escribir "2 = Push";
+        Escribir "3 = Pop";
+        Escribir "4 = Top";
+        Escribir "Cualquier otro número para salir";
+        Leer seleccion; 
+        Segun seleccion Hacer 
+            1:
+                band = isEmpty(pila,tope);  
+                Si (band=Verdadero) Entonces 
+                    Escribir "La pila está vacía";
+                Sino 
+                    Escribir "La pila no está vacía";
+                FinSi
+            2:
+                tope = Push(pila,tope,n,dato); 
+            3: 
+                tope = Pop(pila, tope,n); 
+            4: 
+                Top(pila,tope);
+            De Otro Modo: 
+        Fin Segun
+		Hasta Que(seleccion <> 1 y seleccion <> 2 y seleccion <> 3 y seleccion <> 4) 
+		
+FinAlgoritmo
+
+Funcion band <- isEmpty(pila,tope) 
+    Si(tope=0) Entonces 
+        band <- Verdadero 
+    Sino
+        band <- Falso; 
+    FinSi
+FinFuncion
+
+Funcion tope <- Push(pila,tope,n,dato) 
+    band = pilaLlena(pila,tope,n); 
+    Si(band=Verdadero) Entonces 
+        Escribir "ERROR Overflow";
+    Sino 
+        Escribir Sin Saltar "ingrese dato numerico a insertar "; Leer dato; 
+        pila[tope+1] = dato; 
+        tope <- tope + 1; 
+    FinSi
+FinFuncion
+
+Funcion tope <- Pop(pila, tope,n) 
+    band = isEmpty(pila,tope);
+    Si(band=Verdadero) Entonces 
+        Escribir "ERROR -Underflow";
+    Sino
+        tope <- tope-1; 
+        pila[tope+1] = 0; 
+    FinSi
+FinFuncion
+
+Funcion Top(pila,tope)
+    Si(tope=0) Entonces 
+        Escribir "La pila está vacía";
+    Sino 
+        Escribir "El último elemento ingresado es: ", pila[tope];
+    FinSi
+FinFuncion
+
+Funcion band <- pilaLlena(pila,tope,n)  
+    Si(tope=n) Entonces 
+        band <- Verdadero; 
+    Sino 
+        band <- Falso; 
+    FinSi
+FinFuncion
