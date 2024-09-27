@@ -1,31 +1,31 @@
 class Pila:
     def __init__(self, n=None):
         self.items = []
-        self.n = n  # Tamaño máximo opcional para la pila
+        self.n = n  
 
     def esta_vacia(self):
         return len(self.items) == 0
 
     def esta_llena(self):
         if self.n is None:
-            return False  # Si no hay límite, la pila nunca está "llena"
+            return False  
         return len(self.items) >= self.n
 
     def push(self, item):
         if self.esta_llena():
-            print("La pila está llena. No se puede apilar más elementos.")
+            print("La pila está llena")#no puse limite en la pila, entonces nunca va a estar llena 
         else:
             self.items.append(item)
 
     def pop(self):
         if self.esta_vacia():
-            print("La pila está vacía. No hay elementos para desapilar.")
+            print("La pila está vacía")
             return None
         return self.items.pop()
 
     def top(self):
         if self.esta_vacia():
-            print("La pila está vacía.")
+            print("La pila está vacía")
             return None
         return self.items[len(self.items) - 1]
 
