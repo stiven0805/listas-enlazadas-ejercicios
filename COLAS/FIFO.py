@@ -21,7 +21,7 @@ class Queue:
     def size(self):
         return len(self.tareas)
 
-class SJF:
+class FIFO:
     def __init__(self):
         self.ready_queue = Queue()
         self.completed_queue = Queue()
@@ -47,7 +47,7 @@ tarea2 = Tarea(2, 3)
 tarea3 = Tarea(3, 2)
 tarea4 = Tarea(4, 7)
 
-planificador = SJF()
+planificador = FIFO()
 
 
 planificador.agg_tarea(tarea1)
